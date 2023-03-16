@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specialites",
+  "info": {
+    "singularName": "specialite",
+    "pluralName": "specialites",
+    "displayName": "spécialité",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pouvoir": {
+      "type": "integer"
+    },
+    "lutte": {
+      "type": "integer"
+    },
+    "athletisme": {
+      "type": "integer"
+    },
+    "precision": {
+      "type": "integer"
+    },
+    "furtivite": {
+      "type": "integer"
+    },
+    "volonte": {
+      "type": "integer"
+    },
+    "itimidation": {
+      "type": "integer"
+    },
+    "diplomatie": {
+      "type": "integer"
+    },
+    "histoire": {
+      "type": "integer"
+    },
+    "perceptionMagique": {
+      "type": "integer"
+    },
+    "bibliotheque": {
+      "type": "integer"
+    },
+    "connaissanceMagique": {
+      "type": "integer"
+    },
+    "perception": {
+      "type": "integer"
+    },
+    "medecine": {
+      "type": "integer"
+    },
+    "premierSecours": {
+      "type": "integer"
+    },
+    "mensonge": {
+      "type": "integer"
+    },
+    "survivaliste": {
+      "type": "integer"
+    },
+    "charme": {
+      "type": "integer"
+    },
+    "reflexe": {
+      "type": "integer"
+    },
+    "psychologie": {
+      "type": "integer"
+    },
+    "personnage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::personnage.personnage",
+      "inversedBy": "specialite"
+    }
+  }
+}
