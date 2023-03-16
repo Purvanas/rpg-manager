@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personnages",
+  "info": {
+    "singularName": "personnage",
+    "pluralName": "personnages",
+    "displayName": "personnage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string",
+      "required": false
+    },
+    "Prenom": {
+      "type": "string"
+    },
+    "Race": {
+      "type": "string"
+    },
+    "Taille": {
+      "type": "string"
+    },
+    "Corp": {
+      "type": "integer"
+    },
+    "Age": {
+      "type": "integer"
+    },
+    "Armure": {
+      "type": "integer"
+    },
+    "Deplacement": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "specialite": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::specialite.specialite",
+      "mappedBy": "personnage"
+    }
+  }
+}
