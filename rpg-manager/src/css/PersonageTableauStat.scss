@@ -1,0 +1,31 @@
+//STATISTIQUES//
+
+#tableauStat{
+    margin-left: 50px;
+    max-width: 400px;
+}
+
+#tableaustats{
+    border: solid thin black;
+}
+
+#statistique{
+    border: solid thin black;
+    max-width: 500px;
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 2fr 1fr;
+}
+
+#stat{
+    margin-left: 20px;
+    font-family: cursive;
+    font-size: 17px;
+}
+
+#statValue{
+    font-family: cursive;
+    font-size: 17px;
+}
+
+//STATISTIQUES//

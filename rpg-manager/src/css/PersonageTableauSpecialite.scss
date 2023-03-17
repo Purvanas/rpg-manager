@@ -1,0 +1,24 @@
+//SPÉCIALITÉES//
+
+#spec{
+    font-family: cursive;
+    margin-left: 10px;
+    padding-right: 5px;
+}
+
+#specValue{
+    border: solid thin black;
+    display: grid;
+    font-size: 13px;
+    grid-template-columns: 3fr 1fr;
+    text-align: center;
+}
+
+#tableauSpec{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    border: solid thin black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
