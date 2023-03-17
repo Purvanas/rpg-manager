@@ -1,0 +1,35 @@
+#tableauObjet{
+    position: absolute;
+    top: 400px;
+    right: 50px;
+    width: 925px;
+    border: solid thin black;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#objet{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 5fr;
+    border: solid thin black;
+}
+
+#objetTxt{
+    font-family: cursive;
+    font-size: 10px;
+    margin-left: 10px;
+    border-right: solid thin black;
+}
+
+#objetPlaceHolder{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 5fr;
+    border: solid thin black;
+    text-align: center;
+}
+
+#objetTxtPlaceHolder{
+    font-family: cursive;
+    font-size: 15px;
+    margin-left: 10px;
+}

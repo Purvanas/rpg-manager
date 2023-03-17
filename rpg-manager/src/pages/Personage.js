@@ -1,16 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PersonageTableauStat from '../components/PersonageTableauStat';
-import "../css/style.scss"
 import PersonageTableauSpecialite from '../components/PersonageTableauScpecialite';
+import PersonageTableauInventaire from '../components/PersonageTableauInventaire';
+import "../css/style.scss"
+import "../css/PersonageTableauInventaire.scss"
+import "../css/PersonageTableauSpecialite.scss"
+import "../css/PersonageTableauStat.scss"
+
 
 
 const Personage = () => {
     const apiPerso = "http://localhost:1337/api/personnages/"
 
+
+    const dataInventaire = {
+      po:{
+        libelle:"Pièces d'or",
+        quantite:600,
+        poids:3, //poids en gramme
+        details:"none",
+      },
+      potionVie:{
+        libelle:"Potion de vie",
+        quantite:2,
+        poids:250, //poids en gramme
+        details:"Rend des points de vie",
+      },
+      potionEssence:{
+        libelle:"Potion d'essence",
+        quantite:2,
+        poids:250, //poids en gramme
+        details:"Rend des points d'essence",
+      }
+    }
+
     const [personnage, setPersonnage] = useState({});
     const [spécialités, setSpécialités] = useState({});
     const [imageUrl, setImageUrl] = useState("");
+    const [inventaire, setInventaire] = useState({});
 
     function formatJson(jsonObj) {
         const { createdAt, updatedAt, ...rest } = jsonObj;
@@ -31,6 +59,7 @@ const Personage = () => {
         setPersonnage(data);
         setSpécialités(dataSpec)
         setImageUrl('http://localhost:1337'+imgUrl);
+        setInventaire(dataInventaire);
     }
 
 
@@ -49,6 +78,7 @@ const Personage = () => {
                 <h2>Personnage</h2>
                 <PersonageTableauStat value={personnage} /> 
                 <PersonageTableauSpecialite value={spécialités}/>
+                <PersonageTableauInventaire value={dataInventaire} />
             </div>
         </div>
     );
