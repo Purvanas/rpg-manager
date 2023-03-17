@@ -38,19 +38,41 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "specialite": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::specialite.specialite",
+      "mappedBy": "personnage"
+    },
+    "Metier": {
+      "type": "string"
+    },
+    "vie": {
+      "type": "integer"
+    },
+    "vieMax": {
+      "type": "integer"
+    },
+    "essence": {
+      "type": "integer"
+    },
+    "essenceMax": {
+      "type": "integer"
+    },
+    "inventaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventaire.inventaire",
       "mappedBy": "personnage"
     }
   }

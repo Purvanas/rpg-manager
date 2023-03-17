@@ -15,7 +15,8 @@ const PersonageTableauStat = (props) => {
     }
 
     return (
-        <div id="tableaustats">
+        <div id="tableauStat">
+            <h2>Personnage</h2>
             {elements}
         </div> 
     );

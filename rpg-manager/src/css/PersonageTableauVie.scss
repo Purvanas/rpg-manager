@@ -1,0 +1,21 @@
+#vie{
+    color: rgb(255, 17, 0);
+    font-family: cursive;
+}
+
+#essence{
+    color: rgb(63, 178, 255);
+    font-family: cursive;
+}
+
+#tableauVie{
+    position: absolute;
+    top: 80px;
+    left: 400px;
+    border: solid thin black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    width: 200px;
+    text-align: center;
+}

@@ -7,6 +7,8 @@ import "../css/style.scss"
 import "../css/PersonageTableauInventaire.scss"
 import "../css/PersonageTableauSpecialite.scss"
 import "../css/PersonageTableauStat.scss"
+import "../css/PersonageTableauVie.scss"
+import PersonageTableauVie from '../components/PersonageTableauVie';
 
 
 
@@ -36,30 +38,58 @@ const Personage = () => {
     }
 
     const [personnage, setPersonnage] = useState({});
+    const [constanteVital, setConstanteVital] = useState({});
     const [spécialités, setSpécialités] = useState({});
     const [imageUrl, setImageUrl] = useState("");
     const [inventaire, setInventaire] = useState({});
 
-    function formatJson(jsonObj) {
-        const { createdAt, updatedAt, ...rest } = jsonObj;
+    function formatJson(jsonObj) { //supprime le createAt et le updateAt
+        const { vie, vieMax, essence, essenceMax, createdAt, updatedAt, ...rest } = jsonObj;
         return rest;
       }
+    
+    function formatVie(obj){
+      const { vie, vieMax, essence, essenceMax, ...rest } = obj;
+      return { vie, vieMax, essence, essenceMax}
+    }
+    
+    function formatInventaire(arr){
+      let nouvelObjet = {};
+
+      arr.forEach(function(objet) {
+        for (let propriete in objet) {
+          nouvelObjet[propriete] = objet[propriete];
+        }
+      });
+      return nouvelObjet
+    }
     
     const getData = async () => {
         const id = 1 //A changer par une requete d'api
 
         const response = await axios.get(apiPerso+id);
         const spec = await axios.get(apiPerso+id+'?populate=*')
+        const getInv = await axios.get(apiPerso+id+'?populate=inventaires,inventaires.objet,inventaires.personnage')
+
+        console.log("getInv : ",getInv.data.data.attributes.inventaires.data)
+
         const imgUrl = spec.data.data.attributes.Image.data[0].attributes.url
+        const dataInventaire = getInv.data.data.attributes.inventaires.data
 
         const data = formatJson(response.data.data.attributes)
+        const vie = formatVie(response.data.data.attributes)
         const dataSpec = formatJson(spec.data.data.attributes.specialite.data.attributes)
+
+        const formatInv = formatInventaire(dataInventaire)
+        console.log("formatInv : ",formatInv.attributes)
+
 
 
         setPersonnage(data);
         setSpécialités(dataSpec)
+        setConstanteVital(vie)
         setImageUrl('http://localhost:1337'+imgUrl);
-        setInventaire(dataInventaire);
+        setInventaire(formatInv);
     }
 
 
@@ -73,13 +103,11 @@ const Personage = () => {
 
     return ( 
         <div id="main">
-            <div id="divImg"><img id="img" /* Dimension max de l'image 300*300 */ src={imageUrl}></img></div>
-            <div id="tableauStat">
-                <h2>Personnage</h2>
-                <PersonageTableauStat value={personnage} /> 
-                <PersonageTableauSpecialite value={spécialités}/>
-                <PersonageTableauInventaire value={dataInventaire} />
-            </div>
+            <div id="divImg"><img id="img" /* Dimension max de l'image 300*300 */ src={imageUrl}></img></div>        
+            <PersonageTableauStat value={personnage} />
+            <PersonageTableauVie value={constanteVital}/> 
+            <PersonageTableauSpecialite value={spécialités}/>
+            <PersonageTableauInventaire value={inventaire} />
         </div>
     );
 };

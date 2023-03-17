@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventaires",
+  "info": {
+    "singularName": "inventaire",
+    "pluralName": "inventaires",
+    "displayName": "Inventaire"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantite": {
+      "type": "integer"
+    },
+    "objet": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::objet.objet"
+    },
+    "personnage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::personnage.personnage",
+      "inversedBy": "inventaires"
+    }
+  }
+}
