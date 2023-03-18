@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sorts",
+  "info": {
+    "singularName": "sort",
+    "pluralName": "sorts",
+    "displayName": "Sort"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "libelle": {
+      "type": "string"
+    },
+    "niveau": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "degats": {
+      "type": "text"
+    },
+    "cout": {
+      "type": "text"
+    },
+    "effet": {
+      "type": "text"
+    }
+  }
+}

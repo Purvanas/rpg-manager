@@ -1,5 +1,4 @@
-#tableauObjet{
-    visibility: hidden;
+#tableauSort{
     position: absolute;
     top: 450px;
     right: 50px;
@@ -7,41 +6,49 @@
     border: solid thin black;
     display: grid;
     grid-template-columns: 1fr;
-
+    
 }
 
-#objet{
+#sort{
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 5fr;
+    grid-template-columns: 2fr 1fr 4fr 1fr 1fr 3fr;
     border: solid thin black;
 }
 
-#objetTxt{
+#sortTxt{
     font-family: cursive;
     font-size: 12px;
-    margin-left: 10px;
 }
 
-#objetPlaceHolder{
+#sortPlaceHolder{
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 5fr;
+    grid-template-columns: 2fr 1fr 4fr 1fr 1fr 3fr;
     border: solid thin black;
     text-align: center;
 }
 
-#objetTxtPlaceHolder{
+#sortTxtPlaceHolder{
     font-family: cursive;
     font-size: 15px;
-    margin-left: 10px;
+    
 }
 
-#tableauObjetData{
+#tableauSortData{
     overflow: auto;
     max-height: 415px;
 }
 
 .borderRight{
     border-right: solid thin black;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.marginLeft{
+    margin-left: 10px;
+    padding-right: 5px;
 }
 
 

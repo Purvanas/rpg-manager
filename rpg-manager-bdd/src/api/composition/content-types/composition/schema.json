@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "compositions",
+  "info": {
+    "singularName": "composition",
+    "pluralName": "compositions",
+    "displayName": "Composition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "force": {
+      "type": "integer"
+    },
+    "agilite": {
+      "type": "integer"
+    },
+    "fermete": {
+      "type": "integer"
+    },
+    "presence": {
+      "type": "integer"
+    },
+    "intellect": {
+      "type": "integer"
+    },
+    "personnage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::personnage.personnage",
+      "inversedBy": "composition"
+    }
+  }
+}

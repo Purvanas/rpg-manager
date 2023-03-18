@@ -16,5 +16,35 @@ h2{
     height: 300px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 100px;
+    margin-left: 5%;
+}
+
+#boutonSwitchSortInventaire{
+    position: absolute;
+    top: 415px;
+    right: 773px;
+    
+}
+
+#btnSwitch{
+    font-family: cursive;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#btnSwitch:hover{
+    background-color: color-mod(background-color, darken 100%);
+}
+
+#btnSwitch:active{
+    background-color: color-mod(background-color, darken 20%);
+}
+
+body {
+    margin: 0;
+ }
+  
+html{
+    background-image: url("https://images6.alphacoders.com/717/717818.jpg");
+    background-size: cover;
 }
