@@ -6,6 +6,7 @@ import PersonageTableauInventaire from '../components/PersonageTableauInventaire
 import PersonageTableauVie from '../components/PersonageTableauVie';
 import PersonageTableauSort from '../components/PersonageTableauSort';
 import PersonageTableauComposition from '../components/PersonageTableauComposition';
+import PersonageTableauStuff from '../components/PersonageTableauStuff';
 
 import "../css/PersonageTableauComposition.scss"
 import "../css/style.scss"
@@ -14,8 +15,22 @@ import "../css/PersonageTableauSpecialite.scss"
 import "../css/PersonageTableauStat.scss"
 import "../css/PersonageTableauVie.scss"
 import "../css/PersonageTableauSort.scss"
+import "../css/PersonageTableauStuff.scss"
 
 
+const stuff = [
+  {
+  "libelle": "Robe de mage",
+  "description": "Augmente les résistances face aux effets magiques",
+  "surplus": "Mallus déplacement (c’est pas évident de courire avec une robe)",
+  "effets": "Réduit de -2 des dmg magiques reçus"
+  },
+  {
+  "libelle": "Bâton de mage",
+  "description": "Augmente les effets magiques.",
+  "surplus": "x",
+  "effets": "Permet de réduire 1 d’essence par sort tant qu’il est en main"
+  }]
 
 const Personage = () => {
     const apiPerso = "http://localhost:1337/api/personnages/"
@@ -105,18 +120,31 @@ const Personage = () => {
     const showIventaire = () =>{
       var div1 = document.getElementById("tableauObjet");
       var div2 = document.getElementById("tableauSort");
+      var div3 = document.getElementById("tableauStuff");
 
       div1.style.visibility = "visible";
       div2.style.visibility = "hidden";      
-
+      div3.style.visibility = "hidden";
     }
 
     const showSort = () =>{
       var div1 = document.getElementById("tableauObjet");
       var div2 = document.getElementById("tableauSort");
+      var div3 = document.getElementById("tableauStuff");
 
       div1.style.visibility = "hidden";
       div2.style.visibility = "visible";
+      div3.style.visibility = "hidden";
+    }
+
+    const showStuff = () =>{
+      var div1 = document.getElementById("tableauObjet");
+      var div2 = document.getElementById("tableauSort");
+      var div3 = document.getElementById("tableauStuff");
+
+      div1.style.visibility = "hidden";
+      div2.style.visibility = "hidden";
+      div3.style.visibility = "visible";
     }
 
 
@@ -136,6 +164,7 @@ const Personage = () => {
             <div id="boutonSwitchSortInventaire">
               <button id="btnSwitch" onClick={showIventaire} style={{ backgroundColor: theme }}>Inventaire</button>
               <button id="btnSwitch" onClick={showSort} style={{ backgroundColor: theme }}>Sorts</button>
+              <button id="btnSwitch" onClick={showStuff} style={{ backgroundColor: theme }}>Équipements</button>
             </div>        
             <PersonageTableauStat value={personnage} theme={theme} />
             <PersonageTableauVie value={constanteVital} theme={theme} /> 
@@ -143,6 +172,7 @@ const Personage = () => {
             <PersonageTableauInventaire value={inventaire} theme={theme} />
             <PersonageTableauSort value={sort} theme={theme}/>
             <PersonageTableauComposition value={composition} theme={theme} />
+            <PersonageTableauStuff value={stuff} theme={theme} />
         </div>
     );
 };
