@@ -97,6 +97,12 @@
     },
     "theme": {
       "type": "string"
+    },
+    "stuffs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stuff.stuff",
+      "mappedBy": "personnage"
     }
   }
 }
