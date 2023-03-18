@@ -7,7 +7,7 @@ const PersonageTableauStat = (props) => {
 
     for (let key in objetJSON) {
         elements.push(
-            <div id="statistique">
+            <div id="statistique"  style={{ backgroundColor: props.theme }}>
                 <h3 id="stat">{key} :</h3>
                 <h3 id="statValue">{objetJSON[key]}</h3>
             </div>

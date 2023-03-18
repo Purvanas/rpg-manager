@@ -2,7 +2,7 @@ import React from 'react';
 
 const PersonageTableauSpecialite = (props) => {
     return (
-        <div id="tableauSpec">
+        <div id="tableauSpec" style={{ backgroundColor: props.theme }}>
             <div id="specValue">
                 <h3 id="spec">Pouvoir</h3>
                 <h3>{props.value.pouvoir}</h3>

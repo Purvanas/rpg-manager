@@ -74,6 +74,29 @@
       "relation": "oneToMany",
       "target": "api::inventaire.inventaire",
       "mappedBy": "personnage"
+    },
+    "sorts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sort.sort"
+    },
+    "composition": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::composition.composition",
+      "mappedBy": "personnage"
+    },
+    "backgroundimage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "theme": {
+      "type": "string"
     }
   }
 }

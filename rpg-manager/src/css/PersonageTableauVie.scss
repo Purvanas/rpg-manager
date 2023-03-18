@@ -10,12 +10,12 @@
 
 #tableauVie{
     position: absolute;
-    top: 80px;
-    left: 400px;
-    border: solid thin black;
+    top: 10px;
+    left: 370px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr ;
-    width: 200px;
-    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px;
+    width: 100px;
+    text-align: left;
 }
