@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stuffs",
+  "info": {
+    "singularName": "stuff",
+    "pluralName": "stuffs",
+    "displayName": "stuff",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "libelle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "surplus": {
+      "type": "text"
+    },
+    "effets": {
+      "type": "text"
+    },
+    "personnage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::personnage.personnage",
+      "inversedBy": "stuffs"
+    }
+  }
+}

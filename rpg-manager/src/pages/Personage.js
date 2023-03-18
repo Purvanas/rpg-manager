@@ -18,20 +18,6 @@ import "../css/PersonageTableauSort.scss"
 import "../css/PersonageTableauStuff.scss"
 
 
-const stuff = [
-  {
-  "libelle": "Robe de mage",
-  "description": "Augmente les résistances face aux effets magiques",
-  "surplus": "Mallus déplacement (c’est pas évident de courire avec une robe)",
-  "effets": "Réduit de -2 des dmg magiques reçus"
-  },
-  {
-  "libelle": "Bâton de mage",
-  "description": "Augmente les effets magiques.",
-  "surplus": "x",
-  "effets": "Permet de réduire 1 d’essence par sort tant qu’il est en main"
-  }]
-
 const Personage = () => {
     const apiPerso = "http://localhost:1337/api/personnages/"
 
@@ -41,6 +27,7 @@ const Personage = () => {
     const [imageUrl, setImageUrl] = useState("");
     const [inventaire, setInventaire] = useState({});
     const [sort, setSort] = useState({});
+    const [stuff, setStuff] = useState({});
     const [composition, setComposition] = useState({}); 
     const [theme, setTheme] = useState(""); 
 
@@ -89,6 +76,13 @@ const Personage = () => {
         const spec = await axios.get(apiPerso+id+'?populate=*')
         const getInv = await axios.get(apiPerso+id+'?populate=inventaires,inventaires.objet')
         const getSort = await axios.get(apiPerso+id+'?populate=sorts')
+
+        const stuff = spec.data.data.attributes.stuffs.data.map(item =>({
+          libelle: item.attributes.libelle,
+          description:item.attributes.description,
+          surplus:item.attributes.surplus,
+          effets:item.attributes.effets
+        }));
         
         
         const compo = spec.data.data.attributes.composition.data.attributes
@@ -98,7 +92,7 @@ const Personage = () => {
         
 
         const data = formatJson(response.data.data.attributes)
-        const theme = response.data.data.attributes.theme;
+        const theme = response.data.data.attributes.theme + Math.round(0.4 * 255).toString(16);
 
         const vie = formatVie(response.data.data.attributes)
         const dataSpec = formatJson(spec.data.data.attributes.specialite.data.attributes)
@@ -111,6 +105,7 @@ const Personage = () => {
         setImageUrl('http://localhost:1337'+imgUrl);
         setInventaire(inv);
         setSort(spell)
+        setStuff(stuff)
         setComposition(compo)
         setTheme(theme)
     }
