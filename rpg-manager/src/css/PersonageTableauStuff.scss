@@ -1,0 +1,56 @@
+#tableauStuff{
+    visibility: hidden;
+    position: absolute;
+    top: 450px;
+    right: 50px;
+    width: 925px;
+    border: solid thin black;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+#stuff{
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr 3fr;
+    border: solid thin black;
+}
+
+#stuffTxt{
+    font-family: cursive;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#stuffPlaceHolder{
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr 3fr;
+    border: solid thin black;
+    text-align: center;
+}
+
+#stuffTxtPlaceHolder{
+    font-family: cursive;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#tableauStufftData{
+    overflow: auto;
+    max-height: 415px;
+}
+
+.borderRight{
+    border-right: solid thin black;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.marginLeft{
+    margin-left: 10px;
+    padding-right: 5px;
+}
+
+
