@@ -1,13 +1,15 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import {Routes,Route } from "react-router-dom";
 import Personage from "./pages/Personage"
+import Connexion from "./pages/Connexion";
+import SelectPersonage from "./pages/SelectPersonage";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Personage/>}></Route>
+        <Route path="/personage" element={<Personage/>} />
+        <Route path="/selectPersonage" element={<SelectPersonage/>} />
+        <Route path="/" element={<Connexion/>} />
       </Routes>
-    </BrowserRouter>
   );
 }
 

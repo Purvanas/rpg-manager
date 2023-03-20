@@ -103,6 +103,12 @@
       "relation": "oneToMany",
       "target": "api::stuff.stuff",
       "mappedBy": "personnage"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "personnages"
     }
   }
 }

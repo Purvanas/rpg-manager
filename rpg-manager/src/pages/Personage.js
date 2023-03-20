@@ -16,9 +16,26 @@ import "../css/PersonageTableauStat.scss"
 import "../css/PersonageTableauVie.scss"
 import "../css/PersonageTableauSort.scss"
 import "../css/PersonageTableauStuff.scss"
+import "../css/Personage.scss"
 
 
 const Personage = () => {
+
+  const id = localStorage.getItem('idPerso')
+
+  /*document.body.style.backgroundImage = "";*/
+
+  function checkAuth() {
+    const jwt = localStorage.getItem('jwt');
+    const idPerso = localStorage.getItem('idPerso')
+    if (!jwt) {
+      window.location.href = '/';
+    } else if(!idPerso){
+      window.location.href = '/selectPersonage';
+    }
+  }
+  checkAuth()
+  
     const apiPerso = "http://localhost:1337/api/personnages/"
 
     const [personnage, setPersonnage] = useState({});
@@ -70,7 +87,7 @@ const Personage = () => {
 
     
     const getData = async () => {
-        const id = 1 //A changer par une requete d'api
+        
 
         const response = await axios.get(apiPerso+id);
         const spec = await axios.get(apiPerso+id+'?populate=*')
@@ -112,6 +129,7 @@ const Personage = () => {
 
 
 
+
     const showIventaire = () =>{
       var div1 = document.getElementById("tableauObjet");
       var div2 = document.getElementById("tableauSort");
@@ -144,6 +162,7 @@ const Personage = () => {
 
 
     useEffect(() => {
+      
       getData();
       const interval = setInterval(() => {
         getData();
@@ -152,7 +171,6 @@ const Personage = () => {
     }, []);
 
     
-
     return ( 
         <div id="main">
             <div id="divImg"><img id="img" /* Dimension max de l'image 300*300 */ src={imageUrl}></img></div>
