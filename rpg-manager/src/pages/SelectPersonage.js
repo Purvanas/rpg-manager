@@ -20,7 +20,7 @@ const SelectPersonage = () => {
     
 
 
-    const elements = Object.keys(listPersonnages).map((key) => (
+    const Personnages = Object.keys(listPersonnages).map((key) => (
         <div id="widgetSelectPerso" key={listPersonnages[key].id} onClick={()=> handleClick(listPersonnages[key].id)}>
             <div id='selectPersoName'>
                 <h3 id="selectPersoTxt" className=''>{listPersonnages[key].Nom}</h3>
@@ -29,23 +29,30 @@ const SelectPersonage = () => {
             <img id="imgWidgetSelectPerso" src={'http://localhost:1337' + listPersonnages[key].Image[0].url}></img>
         </div>
     ));
-    
+        
+    const creationPerso =(
+        <div id="widgetSelectPerso" onClick={()=> createPerso()}>
+            <img id="imgWidgetSelectPerso" src={'http://localhost:1337/uploads/add_user_fbc1395607.png?updated_at=2023-03-20T15:45:00.657Z'}></img>
+        </div>
+    )
 
     async function handleClick(key) {
         await localStorage.setItem('idPerso',key);
         window.open('/personage', '_blank');
     }
+
+    const createPerso = () => {//creation
+        window.location.href = '/creation';
+    }
       
-
-
-
 
     return (
         <div id='body'>
         <Navbar />
         <h1>Choisissez votre personnage</h1>
         <div id="TableauSelectionPersonnage">
-                {elements}
+                {Personnages}
+                {creationPerso}
         </div>
     </div>
     );
