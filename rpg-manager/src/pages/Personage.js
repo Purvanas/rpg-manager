@@ -109,7 +109,7 @@ const Personage = () => {
         
 
         const data = formatJson(response.data.data.attributes)
-        const theme = response.data.data.attributes.theme + Math.round(0.4 * 255).toString(16);
+        const theme = response.data.data.attributes.theme + Math.round(0.6 * 255).toString(16);
 
         const vie = formatVie(response.data.data.attributes)
         const dataSpec = formatJson(spec.data.data.attributes.specialite.data.attributes)
