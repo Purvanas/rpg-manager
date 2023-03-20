@@ -32,6 +32,7 @@ const HandleSubmit = async (event) => {
           // Stocker le JWT dans le localStorage
           await localStorage.setItem('jwt', login.jwt);
           await localStorage.setItem('id', login.user.id);
+          await localStorage.setItem('isLogged',true)
           const personnages = await axios.get(`http://localhost:1337/api/users/${login.user.id}?populate=personnages,personnages.Image`);
           console.log("Personnages : ",personnages.data);
           await localStorage.setItem('listPersonnages', JSON.stringify(personnages.data.personnages));
