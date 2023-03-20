@@ -1,0 +1,19 @@
+#FormPersonnage{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black thin;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#body{
+    height: 100%;
+}
+
+#espace{
+    height: 100px;
+}
