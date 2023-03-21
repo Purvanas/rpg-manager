@@ -58,7 +58,8 @@ const CreationPersonnage = () => {
       essence: '',
       theme: '',
       Image: null,
-      Backgroundimage: null
+      Backgroundimage: null,
+      users:localStorage.getItem('id')
     });
   
     const handleChange = (event) => {
