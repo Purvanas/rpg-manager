@@ -5,6 +5,13 @@ import "../css/Connexion.scss"
 import "../css/CreationPersonnage.scss"
 
 const CreationPersonnage = () => {
+  function checkAuth() {
+    const jwt = localStorage.getItem('jwt');
+    if (!jwt) {
+      window.location.href = '/';
+    }
+  }
+  checkAuth()
 
   let PersonnageComplet = {
     Personnage:{},
@@ -16,33 +23,9 @@ const CreationPersonnage = () => {
     Image:{},
     Backgroundimage:{}
   }
+  
 
-  /*const objetPerso = { 
-        "data":{
-          "Nom":"test1",
-          "Prenom":"test1",
-          "Race":"race",
-          "Taille":"taille",
-          "Corp":0,
-          "Age":25,
-          "Armure":10,
-          "Deplacement":"6m",
-          "Metier":"sdf",
-          "vie":63,
-          "vieMax":63,
-          "essence":63,
-          "essenceMax":63,
-          "theme":"#86E7E7"
-        }
-      }*/
 
-  function checkAuth() {
-      const jwt = localStorage.getItem('jwt');
-      if (!jwt) {
-        window.location.href = '/';
-      }
-  }
-  checkAuth()
 
   const [formData, setFormData] = useState({
       Nom: '',
@@ -55,7 +38,9 @@ const CreationPersonnage = () => {
       Deplacement: '',
       Metier: '',
       vie: '',
+      vieMax:'',//////////////////////////////////////////////////////////////////////////////////////////////////*/
       essence: '',
+      essenceMax:'',//////////////////////////////////////////////////////////////////////////////////////////////////*/
       theme: '',
       Image: null,
       Backgroundimage: null,
@@ -71,6 +56,9 @@ const CreationPersonnage = () => {
       setFormData({ ...formData, [event.target.name]: event.target.files[0] });
     };
   
+    
+    
+    
     const creatObjPerso = (event) => {
       event.preventDefault();
       const {Image, Backgroundimage, ...rest} = formData;
@@ -79,63 +67,11 @@ const CreationPersonnage = () => {
       PersonnageComplet.Backgroundimage = Backgroundimage;
       console.log(PersonnageComplet);
     };
-  
-
-  
 
 
-
-const FormPersonnage = (
-  <div>
-    <h1>Création de personnage</h1>
-    <div id="FormPersonnage">
-      <label htmlFor="nom">Nom:</label>
-      <input type="text" id="nom" name="Nom" value={formData.Nom} onChange={handleChange} required/>
-
-      <label htmlFor="prenom">Prenom:</label>
-      <input type="text" id="prenom" name="Prenom" value={formData.Prenom} onChange={handleChange} required/>
-
-      <label htmlFor="race">Race:</label>
-      <input type="text" id="race" name="Race" value={formData.Race} onChange={handleChange} required/>
-
-      <label htmlFor="taille">Taille:</label>
-      <input type="text" id="taille" name="Taille" value={formData.Taille} onChange={handleChange} required/>
-
-      <label htmlFor="corp">Corp:</label>
-      <input type="number" id="corp" name="Corp" value={formData.Corp} onChange={handleChange} required/>
-
-      <label htmlFor="age">Age:</label>
-      <input type="number" id="age" name="Age" value={formData.Age} onChange={handleChange} required/>
-
-      <label htmlFor="armure">Armure:</label>
-      <input type="number" id="armure" name="Armure" value={formData.Armure} onChange={handleChange} required/>
-
-      <label htmlFor="deplacement">Deplacement:</label>
-      <input type="text" id="deplacement" name="Deplacement" value={formData.Deplacement} onChange={handleChange} required/>
-
-      <label htmlFor="metier">Metier:</label>
-      <input type="text" id="metier" name="Metier" value={formData.Metier} onChange={handleChange} required/>
-
-      <label htmlFor="vie">Vie:</label>
-      <input type="number" id="vie" name="vie" value={formData.vie} onChange={handleChange} required/>
-
-      <label htmlFor="essence">Essence:</label>
-      <input type="number" id="essence" name="essence" value={formData.essence} onChange={handleChange} required/>
-
-      <label htmlFor="theme">Theme:</label>
-      <input type="color" id="theme" name="theme" value={formData.theme} onChange={handleChange} required/>
-
-      <label htmlFor="image">Image:</label>
-      <input type="file" id="image" name="Image" accept="image/*" onChange={handleImageChange} required/>
-
-      <label htmlFor="backgroundimage">Background Image:</label>
-      <input type="file" id="backgroundimage" name="Backgroundimage" accept="image/*" onChange={handleImageChange} required/>  
-
-      <button type="submit" onClick={creatObjPerso}>Créer le personnage</button>
-    </div>    
-  </div>    
-)
-     
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+////////////////////////////////////////////FONCTION DE POST EN BDD///////////////////////////////////////////////////////////////////////////    
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\///////////////////////////////////////////////////////////////////////////*/  
 
     const postPersonnage = async (data) => {//MODIFICATION EN BDD
       console.log(data)
@@ -151,6 +87,88 @@ const FormPersonnage = (
 			.catch(error => console.error("POST Peronnage", error));
 	};
 
+
+/*///////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    
+////////////////////////////////////////////FONCTION DE POST EN BDD///////////////////////////////////////////////////////////////////////////    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+  
+
+
+
+const FormPersonnage = (
+  <div>
+    <h1>Création de personnage</h1>
+    <div id="FormPersonnage">
+      <div id="FormPersonnageCells"><label htmlFor="nom">Nom:</label>
+      <input type="text" id="nom" name="Nom" value={formData.Nom} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="prenom">Prenom:</label>
+      <input type="text" id="prenom" name="Prenom" value={formData.Prenom} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="race">Race:</label>
+      <input type="text" id="race" name="Race" value={formData.Race} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="taille">Taille:</label>
+      <input type="text" id="taille" name="Taille" value={formData.Taille} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="corp">Corp:</label>
+      <input type="number" id="corp" name="Corp" value={formData.Corp} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="age">Age:</label>
+      <input type="number" id="age" name="Age" value={formData.Age} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="armure">Armure:</label>
+      <input type="number" id="armure" name="Armure" value={formData.Armure} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="deplacement">Deplacement:</label>
+      <input type="text" id="deplacement" name="Deplacement" value={formData.Deplacement} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="metier">Metier:</label>
+      <input type="text" id="metier" name="Metier" value={formData.Metier} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="vie">Vie:</label>
+      <input type="number" id="vie" name="vie" value={formData.vie} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="vie">Vie:</label>
+      <input type="number" id="vie" name="vie" value={formData.vieMax} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="essence">Essence:</label>
+      <input type="number" id="essence" name="essence" value={formData.essence} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="essence">Essence:</label>
+      <input type="number" id="essenceMax" name="essence" value={formData.essenceMax} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="theme">Theme:</label>
+      <input type="color" id="theme" name="theme" value={formData.theme} onChange={handleChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="image">Image:</label>
+      <input type="file" id="image" name="Image" accept="image/*" onChange={handleImageChange} required/></div>
+
+      <div id="FormPersonnageCells"><label htmlFor="backgroundimage">Background Image:</label>
+      <input type="file" id="backgroundimage" name="Backgroundimage" accept="image/*" onChange={handleImageChange} required/></div>  
+
+      <button type="submit" onClick={creatObjPerso}>Retour</button>
+      <button type="submit" onClick={creatObjPerso}>Suivant</button>
+    </div>    
+  </div>    
+)
+     
+
+
+
+
+
+
+
+  const PostPersonnageComplet = async (perso) =>{
+    //post image / BackgroundImage et get leur id/nom
+    //post perso avec les liens à users,image et background
+    //post composition lien à user
+    //post spécialitées lien à user
+    //post inventaire lien à user
+    //post sort lien à user
+  }
 
   return (
       <div id='body'>
