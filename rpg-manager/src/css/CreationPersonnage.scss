@@ -1,7 +1,8 @@
 #FormPersonnage{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     row-gap: 10px;
+    column-gap: 50px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -10,10 +11,19 @@
     padding: 10px;
 }
 
-#body{
-    height: 100%;
+#body {
+    margin: 0;
+    height: 100vh;
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, rgb(74, 209, 209), rgb(98, 185, 185));
+ }
+
+#FormPersonnageCells{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    text-align: center;
 }
 
-#espace{
-    height: 100px;
+label{
+    max-width: 200px;
 }
