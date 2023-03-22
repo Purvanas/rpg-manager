@@ -43,10 +43,17 @@ const CreationPersonnage = () => {
       essence: '',
       essenceMax:'',//////////////////////////////////////////////////////////////////////////////////////////////////*/
       theme: '',
-      Image: null,
-      Backgroundimage: null,
+      /*Image: null,
+      Backgroundimage: null,*/
       users:localStorage.getItem('id')
     });
+
+    const [image,setImage] = useState ({})
+    const [imageBackground,setImageBackground] = useState ({})
+
+
+    const handleImageUpload = (image) => {setImage(image)}
+    const handleImageBackgroundUpload = (image) => {setImage(image)}
   
     const handleChange = (event) => {
       const { name, value } = event.target;
@@ -144,10 +151,10 @@ const FormPersonnage = (
       <input type="color" id="theme" name="theme" value={formData.theme} onChange={handleChange} required/></div>
 
       <div id="FormPersonnageCells"><label htmlFor="image">Image:</label>
-      <DragAndDrop id={'Image'}/></div>
+      <DragAndDrop id={'Image'} /></div>
 
       <div id="FormPersonnageCells"><label htmlFor="backgroundimage">Background Image:</label>
-      <DragAndDrop id={'backgroundimage'}/></div>  
+      <DragAndDrop id={'backgroundimage'} /></div>  
 
       <button type="submit" onClick={creatObjPerso}>Retour</button>
       <button type="submit" onClick={creatObjPerso}>Suivant</button>
