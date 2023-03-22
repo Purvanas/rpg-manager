@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import DragAndDrop from '../components/DragAndDrop.js';
 
 import "../css/Connexion.scss"
 import "../css/CreationPersonnage.scss"
@@ -143,10 +144,10 @@ const FormPersonnage = (
       <input type="color" id="theme" name="theme" value={formData.theme} onChange={handleChange} required/></div>
 
       <div id="FormPersonnageCells"><label htmlFor="image">Image:</label>
-      <input type="file" id="image" name="Image" accept="image/*" onChange={handleImageChange} required/></div>
+      <DragAndDrop id={'Image'}/></div>
 
       <div id="FormPersonnageCells"><label htmlFor="backgroundimage">Background Image:</label>
-      <input type="file" id="backgroundimage" name="Backgroundimage" accept="image/*" onChange={handleImageChange} required/></div>  
+      <DragAndDrop id={'backgroundimage'}/></div>  
 
       <button type="submit" onClick={creatObjPerso}>Retour</button>
       <button type="submit" onClick={creatObjPerso}>Suivant</button>
