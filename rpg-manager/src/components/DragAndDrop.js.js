@@ -39,11 +39,11 @@ const DragAndDrop = (props) => {
     <>
       <Upload
         id={props.id}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
         onChange={handleChange}
+        action={console.log("image : ",{fileList})}
       >
         {fileList.length >= 1 ? null : uploadButton}
       </Upload>
