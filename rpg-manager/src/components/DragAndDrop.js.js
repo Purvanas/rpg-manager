@@ -9,6 +9,8 @@ const getBase64 = (file) =>
     reader.onerror = (error) => reject(error);
   });
 const DragAndDrop = (props) => {
+  const handleImageUpload = props.handleImageUpload
+  const handleImageBackgroundUpload= props.handleImageBackgroundUpload
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [previewTitle, setPreviewTitle] = useState('');
